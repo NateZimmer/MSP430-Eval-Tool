@@ -1,1 +1,21 @@
-MSP430 EVAL TOOL README V0.1
+//MSP430 EVAL TOOL README:
+//Developed by Nathan Zimmerman
+//*NOTE: This tool is not for commercial Use / self promotion. This tool is meant for learning //purposes and open source development only. 
+
+//Tool Discription:
+
+MSP430 GUI EVAL Tool is a debug GUI tool meant for the msp430g2553 proccessor. The GUI allows dynamic redefines of ports for their specific functions such as a spi master, i2c master, analog input, digital output...ect. This tool is should allow for a decrease in the amount of both hardware and software development. 
+
+//File Discriptions: 
+
+//commands.txt 
+
+A file containing the 3byte command structure used for serial rs232 communication. Gives an overview of the MCU command code.   
+
+//main.c 
+A .c file for the msp430G2553 MCU compiled in Code Composer Studios 5. This contained embedded test code required for the GUI opperation. The GUI is meant to work with the MSP430G2553 1.5V HW UART Launchpad. Likewise you can use a FTDI chip for greater reliability or use a 1.4V launchpad with slight modification. 
+
+//gui.cpp
+
+A single messy .cpp file containing a .wx VS-C++ GUI. Currently developed for windows but with modification could be used for other platforms. 
+
