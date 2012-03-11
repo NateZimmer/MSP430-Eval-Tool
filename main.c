@@ -26,16 +26,17 @@ unsigned int comm_p=0;
 ////////////////Function Protos////////////////
 
 void TX(char *tx_message);	// Transmit char string
-void DIR_P1(); //Set P1DIR
-void OUT_P1(); //Set P1OUT
-void REN_P1();
-void SEL_P1();
-void SEL2_P1();
-void DIR_P2();
-void OUT_P2();
-void REN_P2();
-void SEL_P2();
-void SEL2_P2();
+void DIR_P1(); // 0x2
+void OUT_P1(); // 0x3
+void REN_P1(); // 0x4
+void SEL_P1(); // 0x5
+void SEL2_P1(); // 0x6
+void DIR_P2(); // 0x7
+void OUT_P2(); // 0x8
+void REN_P2(); // 0x9
+void SEL_P2(); // 0xA
+void SEL2_P2(); // 0xB
+void PxIN(); // 0xC
 
 
 void process_command(); 	//Main function for doing actions based upon recieved data
@@ -147,7 +148,7 @@ void TX(char *tx_message)
 
 	i++; // increase string index
 
-	__delay_cycles(1500); //transmission delay
+	__delay_cycles(2500); //transmission delay
 
 	if(i>20) //prevent infinite transmit
 	{
@@ -349,6 +350,27 @@ else
 
 ///////////////////////////////////////////
 
+////////////////PxIN()////////////////
+
+void PXIN()
+{
+char databuf[3];
+char *test;
+
+databuf[0] = P1IN;
+databuf[1] = P2IN;
+databuf[2] = 'A';
+databuf[3] = 0;
+test = databuf;
+
+TX(test);
+
+
+
+} // End Function
+
+///////////////////////////////////////////
+
 ////////////////process_command////////////////
 
 void process_command()	// Main processing function
@@ -375,70 +397,75 @@ command = 0;
 
 	case 0x2:	// IF command = digital output port 1
 		DIR_P1();
-		TX("DIR");
+		TX("2");
 		command = 0;
 		comm_p = 0;
 		break;
 
 	case 0x3:
 		OUT_P1();
-		TX("OUT");
+		TX("3");
 		command = 0;
 		comm_p = 0;
 		break;
 
 	case 0x4:
 		REN_P1();
-		TX("REN");
+		TX("4");
 		command = 0;
 		comm_p = 0;
 		break;
 
 	case 0x5:
 		SEL_P1();
-		TX("SEL");
+		TX("5");
 		command = 0;
 		comm_p = 0;
 		break;
 
 	case 0x6:
 		SEL2_P1();
-		TX("SEL2");
+		TX("6");
 		command = 0;
 		comm_p = 0;
 		break;
 
 	case 0x7:
 		DIR_P2();
-		TX("DIR2");
+		TX("7");
 		command = 0;
 		comm_p = 0;
 		break;
 
 	case 0x8:
 		OUT_P2();
-		TX("OUT2");
+		TX("8");
 		command = 0;
 		comm_p = 0;
 		break;
 
 	case 0x9:
 		REN_P2();
-		TX("REN2");
+		TX("9");
 		command = 0;
 		comm_p = 0;
 		break;
 
 	case 0xA:
 		SEL_P2();
-		TX("SEL1p2");
+		TX("A");
 		command = 0;
 		comm_p = 0;
 		break;
 
 	case 0xB:
 		SEL2_P2();
-		TX("SEL2p2");
+		TX("B");
+		command = 0;
+		comm_p = 0;
+		break;
+	case 0xC:
+		PXIN();
 		command = 0;
 		comm_p = 0;
 		break;
