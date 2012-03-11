@@ -12,135 +12,152 @@ Command 0x1		Connect
 Command 0x2		P1DIR
 Command 0x3		P1OUT
 Command 0x4		P1REN
-Command 0x5		P1SEL1
+Command 0x5		P1SEL
 Command 0x6		P1SEL2
 Command 0x7		P2DIR
 Command 0x8		P2OUT
 Command 0x9		P2REN
-Command 0xA		P2Sel1
+Command 0xA		P2Sel
 Command 0xB		P2Sel2
+Command 0xC		PXIN
+READ 0xC		PXIN MCU SENT DATA
+
 
 
 // Specific Packet Details: 
 
-Byte1: Command
-Byte2: Data1
-Byte3: Data2
+Byte0: Command
+Byte1: Data1
+Byte2: Data2
 
 //Connect Byte: Command 0x1
 
-Bits	7	6	5	4	3	2	1
+Bits	7	6	5	4	3	2	1	0
 
-Byte1	0	0	0	0	0	0	1	Connect Byte 1
+Byte1	0	0	0	0	0	0	0	1	Connect Byte 0
+	
+Byte2	0	0	0	0	0	0	0	0	Connect Byte 1	
 
-Byte2	0	0	0	0	0	0	0	Connect Byte 2	
-
-Byte3	0	0	0	0	0	0	0	Connect Byte 3
+Byte3	0	0	0	0	0	0	0	0	Connect Byte 2
 
 
 // P1DIR Manipulation: Command 0x2
 
-Bits	7	6	5	4	3	2	1
+Bits	7	6	5	4	3	2	1	0
 
-Byte1	0	0	0	0	0	1	0	P1DIR Byte 1
+Byte1	0	0	0	0	0	1	0	0	P1DIR Byte 0
 
-Byte2	0	0	0	0	0	Set1	Set0	P1DIR Byte 2	
+Byte2	0	0	0	0	0	0	Set1	Set0	P1DIR Byte 1	
 
-Byte3	data	data	data	data	data	data	data	P1DIR Byte 3
+Byte3	data	data	data	data	data	data	data	data	P1DIR Byte 2
 
 // P1OUT Manipulation: Command 0x3
 
-Bits	7	6	5	4	3	2	1
+Bits	7	6	5	4	3	2	1	0
 
-Byte1	0	0	0	0	0	1	1	P1OUT Byte 1
+Byte1	0	0	0	0	0	0	1	1	P1OUT Byte 0
 
-Byte2	0	0	0	0	0	Set1	Set0	P1OUT Byte 2	
+Byte2	0	0	0	0	0	0	Set1	Set0	P1OUT Byte 1	
 
-Byte3	data	data	data	data	data	data	data	P1OUT Byte 3
+Byte3	data	data	data	data	data	data	data	data	P1OUT Byte 2
 
 // P1REN Manipulation: Command 0x4
 
-Bits	7	6	5	4	3	2	1
+Bits	7	6	5	4	3	2	1	0
 
-Byte1	0	0	0	0	1	0	0	P1REN Byte 1
+Byte1	0	0	0	0	0	1	0	0	P1REN Byte 0
 
-Byte2	0	0	0	0	0	Set1	Set0	P1REN Byte 2	
+Byte2	0	0	0	0	0	0	Set1	Set0	P1REN Byte 1	
 
-Byte3	data	data	data	data	data	data	data	P1REN Byte 3
+Byte3	data	data	data	data	data	data	data	data	P1REN Byte 2
 
 // P1SEL Manipulation: Command 0x5
 
-Bits	7	6	5	4	3	2	1
+Bits	7	6	5	4	3	2	1	0
 
-Byte1	0	0	0	0	1	0	1	P1SEL Byte 1
+Byte1	0	0	0	0	0	1	0	1	P1SEL Byte 0
 
-Byte2	0	0	0	0	0	Set1	Set0	P1SEL Byte 2	
+Byte2	0	0	0	0	0	0	Set1	Set0	P1SEL Byte 1	
 
-Byte3	data	data	data	data	data	data	data	P1SEL Byte 3
+Byte3	data	data	data	data	data	data	data	data	P1SEL Byte 2
 
 // P1SEL2 Manipulation: Command 0x6
 
-Bits	7	6	5	4	3	2	1
+Bits	7	6	5	4	3	2	1	0
 
-Byte1	0	0	0	0	1	1	0	P1SEL2 Byte 1
+Byte1	0	0	0	0	0	1	1	0	P1SEL2 Byte 0
 
-Byte2	0	0	0	0	0	Set1	Set0	P1SEL2 Byte 2	
+Byte2	0	0	0	0	0	0	Set1	Set0	P1SEL2 Byte 1	
 
-Byte3	data	data	data	data	data	data	data	P1SEL2 Byte 3
+Byte3	data	data	data	data	data	data	data	data	P1SEL2 Byte 2
 
 // P2DIR Manipulation: Command 0x7
 
-Bits	7	6	5	4	3	2	1
+Bits	7	6	5	4	3	2	1	0
 
-Byte1	0	0	0	0	1	1	1	P2DIR Byte 1
+Byte1	0	0	0	0	0	1	1	1	P2DIR Byte 0
 
-Byte2	0	0	0	0	0	Set1	Set0	P2DIR Byte 2	
+Byte2	0	0	0	0	0	0	Set1	Set0	P2DIR Byte 1	
 
-Byte3	data	data	data	data	data	data	data	P2DIR Byte 3
+Byte3	data	data	data	data	data	data	data	data	P2DIR Byte 2
 
 //P2OUT Manipulation: Command 0x8
 
-Bits	7	6	5	4	3	2	1
+Bits	7	6	5	4	3	2	1	0
 
-Byte1	0	0	0	1	0	0	0	P2OUT Byte 1
+Byte1	0	0	0	0	1	0	0	0	P2OUT Byte 0
 
-Byte2	0	0	0	0	0	Set1	Set0	P2OUT Byte 2	
+Byte2	0	0	0	0	0	0	Set1	Set0	P2OUT Byte 1	
 
-Byte3	data	data	data	data	data	data	data	P2OUT Byte 3
+Byte3	data	data	data	data	data	data	data	data	P2OUT Byte 2
 
 //P2REN Manipulation: Command 0x9
 
-Bits	7	6	5	4	3	2	1
+Bits	7	6	5	4	3	2	1	0
 
-Byte1	0	0	0	1	0	0	1	P2REN Byte 1
+Byte1	0	0	0	0	1	0	0	1	P2REN Byte 0
 
-Byte2	0	0	0	0	0	Set1	Set0	P2REN Byte 2	
+Byte2	0	0	0	0	0	0	Set1	Set0	P2REN Byte 1	
 
-Byte3	data	data	data	data	data	data	data	P2REN Byte 3
+Byte3	data	data	data	data	data	data	data	data	P2REN Byte 2
 
 //P2SEL Manipulation: Command 0xA
 
-Bits	7	6	5	4	3	2	1
+Bits	7	6	5	4	3	2	1	0
 
-Byte1	0	0	0	1	0	0	1	P2SEL Byte 1
+Byte1	0	0	0	0	1	0	1	0	P2SEL Byte 0
 
-Byte2	0	0	0	0	0	Set1	Set0	P2SEL Byte 2	
+Byte2	0	0	0	0	0	0	Set1	Set0	P2SEL Byte 1	
 
-Byte3	data	data	data	data	data	data	data	P2SEL Byte 3
+Byte3	data	data	data	data	data	data	data	data	P2SEL Byte 2
 
-//P2SEL2 Manipulation: Command 0xA
+//P2SEL2 Manipulation: Command 0xB
 
-Bits	7	6	5	4	3	2	1
+Bits	7	6	5	4	3	2	1	0
 
-Byte1	0	0	0	1	0	0	1	P2SEL2 Byte 1
+Byte1	0	0	0	0	1	0	1	1	P2SEL2 Byte 0
 
-Byte2	0	0	0	0	0	Set1	Set0	P2SEL2 Byte 2	
+Byte2	0	0	0	0	0	0	Set1	Set0	P2SEL2 Byte 1	
 
-Byte3	data	data	data	data	data	data	data	P2SEL2 Byte 3
+Byte3	data	data	data	data	data	data	data	data	P2SEL2 Byte 2
 
+//PXREN Manipulation: Command 0xC
 
+Bits	7	6	5	4	3	2	1	0
 
+Byte1	0	0	0	0	1	1	0	0	PXIN Byte 0
 
+Byte2	0	0	0	0	0	0	0	0	PXIN Byte 1	
+
+Byte3	0	0	0	0	0	0	0	0	PXIN Byte 2
+
+//PXIN MCU SENT DATA
+
+Bits	7	6	5	4	3	2	1	0
+
+Byte1	data	data	data	data	data	data	data	data	P1IN Byte 1
+
+Byte2	data	data	data	data	data	data	data	data	PXIN Byte 2	
 
 
 
