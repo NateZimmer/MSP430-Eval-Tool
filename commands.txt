@@ -21,6 +21,8 @@ Command 0xA		P2Sel
 Command 0xB		P2Sel2
 Command 0xC		PXIN
 READ 0xC		PXIN MCU SENT DATA
+Command 0xE		SPI_Proccess_Command
+
 
 
 
@@ -158,6 +160,56 @@ Bits	7	6	5	4	3	2	1	0
 Byte1	data	data	data	data	data	data	data	data	P1IN Byte 1
 
 Byte2	data	data	data	data	data	data	data	data	PXIN Byte 2	
+
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
+//SPI Maseter
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
+Bits	7	6	5	4	3	2	1	0
+
+Byte1	0	0	0	0	1	1	1	0	Connect Byte 0
+	
+Byte2	0	0	Send	ChipS	Baud	AD2	AD1	AD0	Connect Byte 1	
+
+Byte3	data	data	data	data	data	data	data	data	Connect Byte 2
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
+//AD2	AD1	AD0:	Address bytes for byte number
+
+//Baud:			Baud speed select (1MHZ,500khz, 100khz, 10kz, 1khz)
+
+//ChipS:		Select Chip Select Port
+
+//Send:			Transmit Data
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
